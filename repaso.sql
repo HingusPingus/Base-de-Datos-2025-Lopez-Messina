@@ -1,0 +1,15 @@
+select nombre from proveedor where ciudad="La Plata";
+delete from articulo where codigo in (select articulo_codigo from compuesto_por where material_codigo=null);
+select codigo, descripcion from articulo join compuesto_por on articulo.codigo=articulo_codigo join provisto_por on compuesto_por.material_codigo=provisto_por.material_codigo where provisto_por.proveedor_codigo=1;
+select codigo, nombre from proveedor where codigo in (select proveedor_codigo from provisto_por join material on provisto_por.material_codigo=material.codigo join compuesto_por on compuesto_por.material_codigo = material.codigo join articulo on articulo_codigo=articulo.codigo where articulo.precio >10000);
+select codigo from articulo where precio=(select max(precio) from articulo);
+select descripcion from articulo join tiene on articulo_codigo=articulo.codigo group by articulo_codigo order by stock desc limit 1;
+select almacen.codigo from almacen join tiene on almacen.codigo=almacen_codigo join compuesto_por on tiene.articulo_codigo=compuesto_por.articulo_codigo where material_codigo=2;
+select * from articulo join compuesto_por on articulo_codigo=codigo group by articulo_codigo order by count(material_codigo) desc;
+update tiene set stock=stock*1.2 where stock<20;
+select promedio from (select  avg(cantidad)as promedio from (select count(material_codigo) as cantidad from compuesto_por group by articulo_codigo)as xd1)as xd;
+select max(precio), min(precio), avg(precio) from almacen join tiene on almacen.codigo=almacen_codigo join articulo on tiene.articulo_codigo=articulo.codigo where almacen.codigo=almacen.codigo;
+select almacen_codigo, sum(articulo.precio*stock) from tiene join articulo on articulo_codigo=articulo.codigo group by almacen_codigo;
+select stock*precio from tiene join articulo on articulo_codigo=articulo.codigo where stock>100 group by articulo_codigo;
+select articulo.*, count(material_codigo)as cantidad from articulo join compuesto_por on articulo_codigo=articulo.codigo where precio>5000 and (select count(material_codigo) from compuesto_por where articulo_codigo=articulo.codigo)>3 group by articulo.codigo;
+select material.*, articulo.descripcion from material  join compuesto_por on material_codigo=material.codigo join articulo on compuesto_por.articulo_codigo=articulo.codigo join tiene on articulo.codigo=tiene.articulo_codigo join almacen on almacen.codigo=almacen_codigo where articulo.precio>(select avg(articulo.precio) from tiene join articulo on articulo_codigo=articulo.codigo where almacen_codigo=2 group by almacen_codigo);
