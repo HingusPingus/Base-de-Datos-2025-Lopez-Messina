@@ -120,6 +120,21 @@ end//
 delimiter ;
 
 select fecha_pri(103);
+/*10*/
+delimiter //
+create function cuantosevendiomenos (codigo varchar(45)) returns float deterministic
+begin
+	declare MRSP_v float default 0;
+    declare precio_menor int default 0;
+    declare precio_encima int default 0;
+    select MSRP into MRSP_v from products where productCode=codigo;
+    select count(*) into precio_menor from orderdetails where productCode=codigo and priceEach<MRSP_v;
+    select count(*) into precio_encima from orderdetails where productCode=codigo;
+    return 100*(precio_menor/precio_encima);
+end//
+delimiter ;
+select cuantosevendiomenos("S18_1749");
+
 
 /*11*/
 delimiter //
@@ -201,25 +216,67 @@ select datediff(fecha_fin,fecha_inicio) into cant_dias;
 return cant_dias;
 end //
 delimiter ;
-drop function intervalo;
+
 select intervalo("2000-5-6", current_date());
 
 /*17*/
 
 delimiter //
-create function inter_mimami (fecha_inicio date, fecha_fin date) returns int deterministic
+create function inter_mimami () returns int deterministic
 begin
 declare cant_dias int;
 declare cance int;
-select datediff(fecha_fin,fecha_inicio) into cant_dias;
-if cant_dias>10 then
-select count(*) into cance from orders where orderDate between fecha_inicio and fecha_fin;
-update orders set status="Cancelled";
+select count(*) into cance from orders where intervalo(shippedDate, orderDate)>10;
+update orders set status="Cancelled" where intervalo(shippedDate, orderDate)>10;
 return cance;
-else
-return 0;
-end if;
 end //
 delimiter ;
+select inter_mimami();
 
-select inter_mimami("2000-5-6", current_date());
+/*18*/
+delimiter //
+create function baneado_por_bobina(codigoP varchar(45), codigoO int) returns int deterministic
+begin
+declare cantidad int;
+select sum(quantityOrdered) into cantidad from orderdetails where productCode=codigoP and orderNumber=codigoO;
+delete from orderdetails where productCode=codigoP and orderNumber=codigoO;
+return cantidad;
+end//
+delimiter ;
+drop function baneado_por_bobina;
+select baneado_por_bobina("S18_1749",10100);
+
+/*19*/
+delimiter //
+create function estoc(codiguillo varchar(15)) returns varchar(20) deterministic
+begin
+declare estoque int;
+select quantityInStock into estoque from products where products.productCode=codiguillo;
+if estoque>=5000 then
+return "Sobrestock";
+else if estoque>=1000 and estoque<5000 then
+return "Stock Adecuado";
+else
+return "Bajo Stock";
+end if;
+end if;
+end//
+delimiter ;
+
+select estoc("S10_1678");
+
+/*20*/
+delimiter //
+create function topacio(ano year) returns varchar(100) deterministic
+begin
+declare top1 varchar(45);
+declare top2 varchar(45);
+declare top3 varchar(45);
+select productName into top1 from products join orderdetails on orderdetails.productCode=products.productCode join orders on orderdetails.orderNumber=orders.orderNumber where year(orderDate)=ano group by orderdetails.productCode order by count(orderdetails.productCode) desc limit 1;
+select productName into top2 from products join orderdetails on orderdetails.productCode=products.productCode join orders on orderdetails.orderNumber=orders.orderNumber where year(orderDate)=ano group by orderdetails.productCode order by count(orderdetails.productCode) desc limit 1 offset 1;
+select productName into top3 from products join orderdetails on orderdetails.productCode=products.productCode join orders on orderdetails.orderNumber=orders.orderNumber where year(orderDate)=ano group by orderdetails.productCode order by count(orderdetails.productCode) desc limit 1 offset 2;
+return concat(top1,', ',top2,', ',top3);
+end//
+delimiter ;
+drop function topacio;
+select topacio (2003);
