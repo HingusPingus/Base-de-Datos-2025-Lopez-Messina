@@ -435,7 +435,7 @@ begin
     declare total int;
     declare orde cursor for select orderNumber, comments, sum(priceEach*quantityOrdered) from orders 
     join orderDetails on orders.orderNumber=orderdetails.orderNumber 
-    where orders.customerNumber=cust_num;
+    where orders.customerNumber=cust_num group by orders.orderNumber;
     declare continue handler for not found set hayFilas = 0;
     open orde;
     bucle:loop;
@@ -444,7 +444,7 @@ begin
 			leave bucle;
 		end if;
 		if comm is null then
-			update orders set comments="El total de la orden es ", total where customerNumber=cust_num;
+			update orders set comments=concat("El total de la orden es ", total) where ord_num=cust_num;
 		end if;
 	end loop bucle;
     close orde;
@@ -514,7 +514,7 @@ begin
     close vnet;
 end//
 delimiter ;
-/*14*/ no terminado
+/*14*/
 delimiter //
 create procedure asignarEmpleados()
 begin
@@ -538,3 +538,31 @@ begin
     close curs;
 end//
 delimiter ;
+call asignarEmpleados();
+
+/*vistas*/
+
+/*2*/
+create view totalxorden as select sum(quantityOrdered)from orderdetails group by orderNumber;
+
+select * from totalxorden;
+
+/*3*/
+create view mayoravg as select * from products where buyPrice>(select avg(buyPrice) from products);
+
+select * from mayoravg;
+
+/*6*/
+create view nopaga as select * from customers where customerNumber not in (select customerNumber from payments);
+
+select * from nopaga;
+
+/*10*/
+create view clientesv as select customerName,phone,addressLine1 from customers join orders on customers.customerNumber=orders.customerNumber join orderdetails on orders.orderNumber=orderdetails.orderNumber where shippedDate<curdate()-interval 2 year and (priceEach*quantityOrdered)>30000;
+drop view clientesv;
+select * from clientesv;
+
+/*13*/
+alter view clientestop as select customerNumber from orders group by customerNumber order by count(orderNumber) desc limit 1;
+
+select * from clientestop;
