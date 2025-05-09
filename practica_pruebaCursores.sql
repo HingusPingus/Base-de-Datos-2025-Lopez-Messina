@@ -129,7 +129,7 @@ begin
     declare continue handler for not found set hayFilas = 0;
 	open stockCursor;
     loop1:loop
-		fetch stockCursor into cod, pre1;
+		fetch stockCursor into cod, pre, est;
         if hayFilas=0 then
 			leave loop1;
         end if;
