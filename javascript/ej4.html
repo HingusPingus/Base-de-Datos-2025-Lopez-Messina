@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+
+
+
+
+        <form action="">
+        <label for="elemento">Agregar algo a la lista</label><br>
+        <input type="text" id="elemento" name="elemento"><br>
+
+
+        <button type="button" id="button">submit</button>
+        </form> 
+        <table id="tabla">
+
+          </table>
+
+
+        <script>
+            
+
+            function llenarTabla(){
+                let nombre=$("#elemento").val();
+
+
+
+
+                if(elemento!=null){
+                    var check=true;
+                    const agregar=document.createElement("tr");
+                    const data=document.createElement("td");
+                    const texto=document.createElement("p");
+                    const tachao=document.createElement("s");
+                    const boton=document.createElement("button");
+                    const boton2=document.createElement("button");
+                    boton2.innerHTML="Tachar"
+                    texto.innerHTML=nombre;
+                    tachao.innerHTML=nombre;
+                    boton.appendChild(texto);
+                    boton.className="boton";
+                    data.appendChild(boton);
+                    boton.addEventListener("click",function(){
+                        agregar.remove();
+                    })
+                    boton2.addEventListener("click",function(){
+                        if(check){
+                            
+                            boton.removeChild(texto);
+                            boton.appendChild(tachao);
+                            check=false;
+                        }
+                        else{
+                            boton.removeChild(tachao);
+                            boton.appendChild(texto);
+                            check=true;
+                        }
+                    })
+                    
+                    data.appendChild(boton2);
+                    agregar.appendChild(data);
+                    document.getElementById("tabla").appendChild(agregar)
+                }
+                else{
+                    alert("Por favor, escriba algo");
+                }
+                
+            }
+
+            document.getElementById("button").addEventListener("click", llenarTabla);
+
+        </script>
+
+    </body>
+</html>
+<style>
+    p{
+        margin:0;
+    }
+</style>

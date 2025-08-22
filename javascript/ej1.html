@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <body style="background-color: grey;">
+        <button id="button">
+            <canvas id="myCanvas" width="200" height="100" style="border:0px solid #000000;"></canvas>
+        </button>
+
+
+
+        <script>
+            let name="";
+            const canvas = document.getElementById("myCanvas");
+            const ctx = canvas.getContext("2d");
+
+            ctx.beginPath();
+            ctx.arc(95,50,40,0,2*Math.PI);
+            ctx.stroke();
+
+            function cambiarColor(){
+                if(document.body.style.backgroundColor=="grey"){
+                    document.body.style.backgroundColor="red";
+                    console.log("se cambio");
+                }
+                else if(document.body.style.backgroundColor=="red"){
+                    document.body.style.backgroundColor="grey";
+                    console.log("se cambio");
+                }
+            }
+            
+                document.getElementById("button").addEventListener("click", cambiarColor);
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <body style="background-color: grey;">
+        <button id="button">
+            <canvas id="myCanvas" width="200" height="100" style="border:0px solid #000000;"></canvas>
+        </button>
+        <input type="input" id="inputo">
+
+
+        <script>
+            let name="";
+            const canvas = document.getElementById("myCanvas");
+            const ctx = canvas.getContext("2d");
+            const inputo = document.getElementById('inputo'); 
+            var reg=/^#([0-9a-f]{3}){1,2}$/i;
+
+
+            ctx.beginPath();
+            ctx.arc(95,50,40,0,2*Math.PI);
+            ctx.stroke();
+
+            function cambiarColor(){
+                
+                if(inputo.value.startsWith("#")&&reg.test(inputo.value)){
+                    
+                
+                    document.body.style.backgroundColor=inputo.value;
+                    console.log("se cambio");
+                
+
+                }
+                else{
+                    alert("Formato Incorrecto");
+                }
+            }
+
+                document.getElementById("button").addEventListener("click", cambiarColor);
+        </script>
+
+    </body>
+</html>

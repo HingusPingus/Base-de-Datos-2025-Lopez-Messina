@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+
+
+
+
+        <form action="">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname"><br>
+
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname"><br>
+
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age"><br>
+
+        <label for="phnum">Phone Number:</label><br>
+        <input type="number" id="phnum" name="lname"><br>
+
+        <label for="password">Password:</label><br>
+        <input type="text" id="password" name="lname"><br>
+
+        <button type="button" id="button">submit</button>
+        </form> 
+        <table>
+            <tr>
+                <th>hola</th>
+            </tr>
+            <tr>
+              <td id="nombre"></td>
+            </tr>
+            <tr>
+              <td id="apellido"></td>
+            </tr>
+            <tr>
+              <td id="edad"></td>
+            </tr>
+            <tr>
+              <td id="numeroTelefono"></td>
+            </tr>
+            <tr>
+                <td id="contraseña"></td>
+            </tr>
+          </table>
+
+
+        <script>
+            
+
+            function llenarTabla(){
+                let nombre=$("#fname").val();
+                let apellido=$("#lname").val();
+                let edad=$("#age").val();
+                let numeroTelefono=$("#phnum").val();
+                let contraseña=$("#password").val();
+
+
+
+
+
+                if(nombre!=null && apellido!=null && !nombre.includes(" ") && !apellido.includes(" ")){
+                    if(edad>0 && contraseña.length>6 && !contraseña.includes(nombre) && !contraseña.includes(apellido)){
+                        $("#nombre").text(nombre);
+                        $("#apellido").text(apellido);
+                        $("#edad").text(edad);
+                        $("#numeroTelefono").text(numeroTelefono);
+                        $("#contraseña").text(contraseña);
+                    }
+                    else{
+                        alert("error");
+                    }
+                }
+                else{
+                    alert("error");
+                }
+                
+            }
+
+            document.getElementById("button").addEventListener("click", llenarTabla);
+
+        </script>
+
+    </body>
+</html>
