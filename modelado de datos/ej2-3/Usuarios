@@ -1,0 +1,85 @@
+[{
+  "_id": 48715785,
+  "nombre": "Carlos",
+  "apellido": "Pérez",
+  "email": "carlitospe@gmail.com",
+  "direcciones": [
+    {
+      "calle": "Bulgaria 4385",
+      "ciudad": "CABA",
+      "códigoPostal": "1419",
+      "provincia": "Buenos Aires"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "68bacc1195347be4f54811f9"
+  },
+  "nombre": "Carlos",
+  "apellido": "Pérez",
+  "email": "carlitospe@gmail.com",
+  "direcciones": [
+    {
+      "calle": "Bulgaria 4385",
+      "ciudad": "CABA",
+      "códigoPostal": "1419",
+      "provincia": "Buenos Aires"
+    }
+  ],
+  "compras": [
+    1,
+    2,
+    5,
+    4,
+    6,
+    7,
+    9
+  ]
+},{
+  "_id": {
+    "$oid": "68bacd0a95347be4f54811ff"
+  },
+  "_dni": 29402393,
+  "nombre": "Carlos",
+  "apellido": "Pérez",
+  "email": "carlitospe@gmail.com",
+  "direcciones": [
+    {
+      "calle": "Bulgaria 4385",
+      "ciudad": "CABA",
+      "códigoPostal": "1419",
+      "provincia": "Buenos Aires"
+    }
+  ],
+  "compras": [
+    1,
+    2,
+    5,
+    4,
+    6,
+    7,
+    9
+  ]
+},{
+  "_id": 29402393,
+  "nombre": "Carlos",
+  "apellido": "Pérez",
+  "email": "carlitospe@gmail.com",
+  "direcciones": [
+    {
+      "calle": "Bulgaria 4385",
+      "ciudad": "CABA",
+      "códigoPostal": "1419",
+      "provincia": "Buenos Aires"
+    }
+  ],
+  "compras": [
+    1,
+    2,
+    5,
+    4,
+    6,
+    7,
+    9
+  ]
+}]

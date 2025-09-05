@@ -1,0 +1,39 @@
+[{
+  "_id": 23434333,
+  "nombre": "Pepe",
+  "apellido": "Lopez",
+  "fechaNacimiento": "23-06-1995",
+  "historiaClinica": {
+    "_id": 1,
+    "fechaInicio": "07-07-2004",
+    "observaciones": [
+      "Asmatico",
+      "Diabetico"
+    ],
+    "registrosMedicos": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+},{
+  "_id": 24837198,
+  "nombre": "Pepe",
+  "apellido": "Lopez",
+  "fechaNacimiento": "23-06-1995",
+  "historiaClinica": {
+    "_id": 1,
+    "fechaInicio": "07-07-2004",
+    "observaciones": [
+      "Asmatico",
+      "Diabetico"
+    ],
+    "registrosMedicos": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+}]

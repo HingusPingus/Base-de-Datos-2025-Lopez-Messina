@@ -1,0 +1,41 @@
+[{
+  "_id": 1,
+  "fechaConsulta": "21-06-2024",
+  "diagnostico": "Cancer detectado",
+  "tratamiento": "Eutanasia",
+  "medico": {
+    "_id": 27938918,
+    "nombre": "Carlitos",
+    "apellido": "Gomez"
+  }
+},{
+  "_id": 2,
+  "fechaConsulta": "21-06-2024",
+  "diagnostico": "Cancer detectado",
+  "tratamiento": "Eutanasia",
+  "medico": {
+    "_id": 27938918,
+    "nombre": "Carlitos",
+    "apellido": "Gomez"
+  }
+},{
+  "_id": 3,
+  "fechaConsulta": "21-06-2024",
+  "diagnostico": "Cancer detectado",
+  "tratamiento": "Eutanasia",
+  "medico": {
+    "_id": 27938918,
+    "nombre": "Carlitos",
+    "apellido": "Gomez"
+  }
+},{
+  "_id": 4,
+  "fechaConsulta": "21-06-2024",
+  "diagnostico": "Cancer detectado",
+  "tratamiento": "Eutanasia",
+  "medico": {
+    "_id": 27938918,
+    "nombre": "Carlitos",
+    "apellido": "Gomez"
+  }
+}]
