@@ -1,0 +1,29 @@
+[{
+  "_id": 1,
+  "titulo": "a",
+  "año": "2020",
+  "genero": "thriller",
+  "duracion": 2,
+  "actores": [
+    {
+      "nombre": "b",
+      "apellido": "dui",
+      "fechaNacimiento": "19870105",
+      "nacionalidad": "yemen"
+    }
+  ]
+},{
+  "_id": 2,
+  "titulo": "b",
+  "año": "2024",
+  "genero": "comedia",
+  "duracion": 5,
+  "actores": [
+    {
+      "nombre": "bduhvd",
+      "apellido": "bdia",
+      "fechaNacimiento": "19830206",
+      "nacionalidad": "beirut"
+    }
+  ]
+}]

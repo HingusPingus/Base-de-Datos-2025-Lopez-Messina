@@ -1,0 +1,27 @@
+[{
+  "_id": 1,
+  "nombre": "pepe",
+  "apellido": "mujica",
+  "mail": "algo@gmail.com",
+  "fechaNacimiento": "20031210",
+  "puesto": "gerente",
+  "carnet": {
+    "_id": 1,
+    "numeroSerie": 3,
+    "fechaEmision": "20100303",
+    "fechaVencimiento": "20260101"
+  }
+},{
+  "_id": 2,
+  "nombre": "ndusivb",
+  "apellido": "jgdivom",
+  "mail": "gnao@gmail.com",
+  "fechaNacimiento": "20041112",
+  "puesto": "gerente",
+  "carnet": {
+    "_id": 2,
+    "numeroSerie": 5,
+    "fechaEmision": "20100304",
+    "fechaVencimiento": "20260102"
+  }
+}]

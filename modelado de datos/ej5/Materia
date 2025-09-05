@@ -1,0 +1,23 @@
+[{
+  "_id": 1,
+  "nombre": "nuai",
+  "codigoMateria": 43972,
+  "horasSemanales": 73,
+  "profesores": [
+    {
+      "nombre": "ndiuvax",
+      "apellido": "bndio"
+    }
+  ]
+},{
+  "_id": 2,
+  "nombre": "bndiusv",
+  "codigoMateria": 6174,
+  "horasSemanales": 61,
+  "profesores": [
+    {
+      "nombre": "dbav",
+      "apellido": "hgaeiuv"
+    }
+  ]
+}]
