@@ -1,0 +1,30 @@
+2)
+db.Menu.insertOne({"_id": 4,"nombre": "tomate","precio": 4})
+db.Cliente.insertMany({"_id": 35451785,"nombre": "pepe","apellido": "bv","mail": "bduyvb@gmail.com"},{"_id": 1546156,"nombre": "bauy","apellido": "asvnui","mail": "vbvadib@gmail.com"})
+
+3)db.Restaurante.countDocuments()
+4)
+db.Restaurante.find().sort({"nombre":1})
+db.Restaurante.find().sort({"nombre":-1})
+db.Restaurante.find({"servicios_adicionales":"pet friendly"})
+db.Restaurante.find({"servicios_adicionales":"vegan"})
+db.Restaurante.find({"servicios_adicionales":"delivery"})
+5)
+db.Restaurante.updateMany({},{$set:{"ultima_actualización": new Date()}})
+6)
+db.Restaurante.find({"promos.porcentaje_descuento":25})
+7)
+db.Restaurante.find({"promos.nombre":"jubilados"})
+8)
+db.Restaurante.updateMany({$or:[{"servicios_adicionales":"delivery"},{"servicios_adicionales":"reserva_online"}]},{$set:{"horario_inicio": "11:30"},$set:{"ultima_actualización": new Date()}})
+9)
+db.Restaurante.find({"eventos_especiales.nombre":"Musica en vivo"},{"nombre":1,"direccion":1,"telefono":1})
+10)
+db.Restaurante.update({"_id":1},{$push:{"promo":{"nombre": "a","porcentaje_descuento": 10,"fecha_inicio": "2025-09-10","fecha_fin": "2025-10-10"}}, $set:{"ultima_actualización": new Date()}})
+11)dudoso
+db.Restaurante.find({"promos.porcentaje_descuento": $max{"promos.porcentaje_descuento"}},{"nombre":1,"servicios_adicionales":1,"menu":1})
+12) dudoso
+db.Restaurante.find({$or:[{"promos.nombre":"a"},{"promos.nombre":"black miercoles"}]},{"nombre":1})
+13)falta test
+db.Restaurante.find({$and:[{"servicios_adicionales":"delivery"},{"servicios_adicionales":"reservas online"},{"promos.porcentaje_descuento":{$gt:20}}]},{})
+

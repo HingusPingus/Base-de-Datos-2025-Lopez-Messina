@@ -1,0 +1,17 @@
+[{
+  "_id": 1,
+  "nombre": "lechuga",
+  "precio": 3
+},{
+  "_id": 2,
+  "nombre": "milanesa",
+  "precio": 10
+},{
+  "_id": 3,
+  "nombre": "agua",
+  "precio": 1
+},{
+  "_id": 4,
+  "nombre": "tomate",
+  "precio": 4
+}]
