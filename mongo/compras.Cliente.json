@@ -1,0 +1,34 @@
+[{
+  "_id": 1,
+  "dni": {
+    "$numberLong": "5452523542"
+  },
+  "nombre": "fvgknh",
+  "apellido": "bnbvcxbgm",
+  "compras": [
+    {
+      "fecha": "2025-10-02",
+      "_id": 1,
+      "productos": [
+        {
+          "_id": 1,
+          "descripcion": "papa",
+          "precio": 421,
+          "cant_comprada": 4
+        }
+      ]
+    },
+    {
+      "fecha": "2025-10-03",
+      "_id": 2,
+      "productos": [
+        {
+          "_id": 1,
+          "descripcion": "papa",
+          "precio": 421,
+          "cant_comprada": 5
+        }
+      ]
+    }
+  ]
+}]
