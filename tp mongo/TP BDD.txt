@@ -3,28 +3,77 @@ db.Menu.insertOne({"_id": 4,"nombre": "tomate","precio": 4})
 db.Cliente.insertMany({"_id": 35451785,"nombre": "pepe","apellido": "bv","mail": "bduyvb@gmail.com"},{"_id": 1546156,"nombre": "bauy","apellido": "asvnui","mail": "vbvadib@gmail.com"})
 
 3)db.Restaurante.countDocuments()
+
 4)
 db.Restaurante.find().sort({"nombre":1})
 db.Restaurante.find().sort({"nombre":-1})
 db.Restaurante.find({"servicios_adicionales":"pet friendly"})
 db.Restaurante.find({"servicios_adicionales":"vegan"})
 db.Restaurante.find({"servicios_adicionales":"delivery"})
+
 5)
 db.Restaurante.updateMany({},{$set:{"ultima_actualización": new Date()}})
+
 6)
 db.Restaurante.find({"promos.porcentaje_descuento":25})
+
 7)
 db.Restaurante.find({"promos.nombre":"jubilados"})
+
 8)
 db.Restaurante.updateMany({$or:[{"servicios_adicionales":"delivery"},{"servicios_adicionales":"reserva_online"}]},{$set:{"horario_inicio": "11:30"},$set:{"ultima_actualización": new Date()}})
+
 9)
 db.Restaurante.find({"eventos_especiales.nombre":"Musica en vivo"},{"nombre":1,"direccion":1,"telefono":1})
+
 10)
-db.Restaurante.update({"_id":1},{$push:{"promo":{"nombre": "a","porcentaje_descuento": 10,"fecha_inicio": "2025-09-10","fecha_fin": "2025-10-10"}}, $set:{"ultima_actualización": new Date()}})
-11)dudoso
-db.Restaurante.find({"promos.porcentaje_descuento": $max{"promos.porcentaje_descuento"}},{"nombre":1,"servicios_adicionales":1,"menu":1})
-12) dudoso
-db.Restaurante.find({$or:[{"promos.nombre":"a"},{"promos.nombre":"black miercoles"}]},{"nombre":1})
-13)falta test
+db.Restaurante.update({"_id":1},{$push:{"promos":{"nombre": "a","porcentaje_descuento": 10,"fecha_inicio": "2025-09-10","fecha_fin": "2025-10-10"}}, $set:{"ultima_actualización": new Date()}})
+
+11)
+db.Restaurante.find({"promos.fecha_inicio":{$lt:new Date()},"promos.fecha_fin":{$gt:new Date()}},{"nombre":1,"servicios_adicionales":1,"menu":1}).sort({"promos.porcentaje_descuento":-1}).limit(1)
+
+12) 
+db.Restaurante.find({$or:[{"promos.nombre":"black jueves"},{"promos.nombre":"black miercoles"}]},{"promos.nombre":1})
+
+13)
 db.Restaurante.find({$and:[{"servicios_adicionales":"delivery"},{"servicios_adicionales":"reservas online"},{"promos.porcentaje_descuento":{$gt:20}}]},{})
 
+14)
+db.Restaurante.find({"promos":{$size:0}}, {"nombre":1, "direccion":1, "telefono":1})
+
+15)
+db.Restaurante.find({ "_id": 2 }, { "reseñas": 1 })
+
+16)
+db.Restaurante.find({"promos":{$size:3}}, {"nombre":1, "direccion":1, "telefono":1})
+
+17)
+el operador $elemMatch sirve cuando tenes un array y querés checkear que por lo menos un elemento cumple con todas las condiciones dadas
+ej:
+db.Restaurante.find({"promos":{$elemMatch:{"nombre":"black jueves","porcentaje_descuento":25}}},{})
+
+18)
+db.Restaurante.find({"servicios_adicionales":"sin tacc"})
+
+19)
+db.Restaurante.find({"promos.fecha_inicio":{$lt:new Date()},"promos.fecha_fin":{$gt:new Date()}},{"nombre":1})
+[ { _id: 1, nombre: 'a' } ]
+
+
+20)
+db.Restaurante.deleteMany({"promos":{$size:0},"promos":{$exists:false}})
+
+21)
+$iso: db.Restaurante.updateMany({"_id":2},{$inc:{"promos.$[].porcentaje_descuento":2}} )
+$max: db.Restaurante.updateMany({},{$max:{"promos.$[].porcentaje_descuento":25}})
+$mul: db.Restaurante.updateMany({},{$mul:{"promos.0.porcentaje_descuento":1.2}})
+$rename: db.Restaurante.updateMany({},{$rename:{"promos":"promo"}})
+$unset: db.Restaurante.updateMany({},{$unset:{"menu.3":""}})
+$pop: db.Restaurante.updateMany({},{$pop:{"menu":1}})
+$pull: db.Restaurante.updateMany({},{$pull:{"servicios_adicionales":"shows en vivo"}})
+db.Restaurante.updateMany({},{$push:{"servicios_adicionales":"hola soy un servicio"}})
+
+22)
+mongoexport --db nombre_base_datos --collection nombre_coleccion --out archivo_salida.json
+
+mongoimport --db nombre_base_datos --collection nombre_coleccion --file archivo_entrada.json

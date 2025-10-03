@@ -12,21 +12,7 @@
   ],
   "servicios_adicionales": [
     "catering",
-    "shows en vivo"
-  ],
-  "promos": [
-    {
-      "nombre": "black miercoles",
-      "porcentaje_descuento": 10,
-      "fecha_inicio": "2025-08-27",
-      "fecha_fin": "2025-08-28"
-    },
-    {
-      "nombre": "a",
-      "porcentaje_descuento": 10,
-      "fecha_inicio": "2025-09-10",
-      "fecha_fin": "2025-10-10"
-    }
+    "hola soy un servicio"
   ],
   "reseñas": [
     {
@@ -50,8 +36,29 @@
   "menu": [
     1,
     2,
-    3,
-    4
+    3
+  ],
+  "promos": [
+    {
+      "nombre": "black miercoles",
+      "porcentaje_descuento": 30,
+      "fecha_inicio": {
+        "$date": "2025-08-27T00:00:00.000Z"
+      },
+      "fecha_fin": {
+        "$date": "2025-08-28T00:00:00.000Z"
+      }
+    },
+    {
+      "nombre": "a",
+      "porcentaje_descuento": 25,
+      "fecha_inicio": {
+        "$date": "2025-09-10T00:00:00.000Z"
+      },
+      "fecha_fin": {
+        "$date": "2025-10-10T00:00:00.000Z"
+      }
+    }
   ]
 },
 {
@@ -70,16 +77,8 @@
   ],
   "servicios_adicionales": [
     "delivery",
-    "shows en vivo",
-    "reservas online"
-  ],
-  "promos": [
-    {
-      "nombre": "black jueves",
-      "porcentaje_descuento": 25,
-      "fecha_inicio": "2025-08-27",
-      "fecha_fin": "2025-08-28"
-    }
+    "reservas online",
+    "hola soy un servicio"
   ],
   "reseñas": [
     {
@@ -102,7 +101,18 @@
   },
   "menu": [
     1,
-    2,
-    3
+    2
+  ],
+  "promos": [
+    {
+      "nombre": "black jueves",
+      "porcentaje_descuento": 34.8,
+      "fecha_inicio": {
+        "$date": "2025-08-27T00:00:00.000Z"
+      },
+      "fecha_fin": {
+        "$date": "2025-08-28T00:00:00.000Z"
+      }
+    }
   ]
 }]
