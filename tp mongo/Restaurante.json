@@ -1,0 +1,108 @@
+[{
+  "_id": 1,
+  "nombre": "a",
+  "direccion": "fvbsuyb",
+  "telefono": 1560646,
+  "horario_inicio": "10:00",
+  "horario_cierre": "22:00",
+  "metodos_pago": [
+    "mp",
+    "tarjeta",
+    "efectivo"
+  ],
+  "servicios_adicionales": [
+    "catering",
+    "shows en vivo"
+  ],
+  "promos": [
+    {
+      "nombre": "black miercoles",
+      "porcentaje_descuento": 10,
+      "fecha_inicio": "2025-08-27",
+      "fecha_fin": "2025-08-28"
+    },
+    {
+      "nombre": "a",
+      "porcentaje_descuento": 10,
+      "fecha_inicio": "2025-09-10",
+      "fecha_fin": "2025-10-10"
+    }
+  ],
+  "reseñas": [
+    {
+      "id_usuario": 1,
+      "calificacion": 5,
+      "comentario": "ndvaoboav"
+    }
+  ],
+  "eventos_especiales": [
+    {
+      "nombre": "happy hour",
+      "descripcion": "vbdain",
+      "fecha": "2025-11-02",
+      "horario": "19:00",
+      "reserva": "si"
+    }
+  ],
+  "ultima_actualización": {
+    "$date": "2025-10-03T11:30:08.481Z"
+  },
+  "menu": [
+    1,
+    2,
+    3,
+    4
+  ]
+},
+{
+  "_id": 2,
+  "nombre": "lo de roberto",
+  "direccion": "algo",
+  "telefono": {
+    "$numberLong": "85642385623"
+  },
+  "horario_inicio": "11:00",
+  "horario_cierre": "21:00",
+  "metodos_pago": [
+    "mp",
+    "tarjeta",
+    "efectivo"
+  ],
+  "servicios_adicionales": [
+    "delivery",
+    "shows en vivo",
+    "reservas online"
+  ],
+  "promos": [
+    {
+      "nombre": "black jueves",
+      "porcentaje_descuento": 25,
+      "fecha_inicio": "2025-08-27",
+      "fecha_fin": "2025-08-28"
+    }
+  ],
+  "reseñas": [
+    {
+      "id_usuario": 2,
+      "calificacion": 2,
+      "comentario": " bnmbg cbv"
+    }
+  ],
+  "eventos_especiales": [
+    {
+      "nombre": "happy hour",
+      "descripcion": " sjk<v ",
+      "fecha": "2025-11-02",
+      "horario": "19:00",
+      "reserva": "si"
+    }
+  ],
+  "ultima_actualización": {
+    "$date": "2025-10-03T11:29:08.527Z"
+  },
+  "menu": [
+    1,
+    2,
+    3
+  ]
+}]
