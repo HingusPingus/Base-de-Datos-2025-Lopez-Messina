@@ -1,0 +1,18 @@
+aggregate 1:
+1) db.Clientes.aggregate([{$group:{_id:null,edadPromedio:{$avg:"$edad"}}}])
+
+2)db.Clientes.aggregate([{$unwind:"$compras"},{$unwind:"$compras.productos"},{$group:{_id:"$compras.productos.id",cantidad:{$sum:"$compras.productos.cantidadComprada"}}}])
+
+3)db.Clientes.aggregate([{$unwind:"$compras"},{$unwind:"$compras.productos"},{$group:{_id:"$compras.productos.id",cantidad:{$sum:"$compras.productos.cantidadComprada"}}}])
+
+4) db.Clientes.aggregate([{$unwind:"$compras"},{$group:{_id:"$_id",comprasTotales:{$sum:1}}},{$match:{comprasTotales:{$gt:2}}}])
+
+5)db.Clientes.aggregate([{$unwind:"$compras"},{$group:{_id:"$_id",cantidad:{$sum:1}}},{$sort: { totalCompras: 1 }},{$limit: 1}])
+
+
+
+6)db.Clientes.aggregate([{$unwind:"$compras"},{$unwind:"$compras.productos"},{$group:{_id:"$compras.productos.id",cantidad:{$sum:"$compras.productos.cantidadComprada"}}}])
+
+7)db.Clientes.aggregate([{$unwind:"$compras"},{$unwind:"$compras.productos"},{$group:{_id:"$compras.productos.id",cantidad:{$sum:1}}}])
+
+
